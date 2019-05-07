@@ -23,12 +23,9 @@ public class Arrays_Strings {
             HashMap<Character, Integer> s1_map = new HashMap<>();
             HashMap<Character, Integer> s2_map = new HashMap<>();
 
-            for (Character letter : s1.toCharArray()) {
-                s1_map.put(letter, s1_map.getOrDefault(letter,0) + 1);
-            }
-
-            for (Character letter : s2.toCharArray()) {
-                s2_map.put(letter, s2_map.getOrDefault(letter, 0) + 1);
+            for (int i = 0; i < s1.length(); i++) {
+                s1_map.put(s1.charAt(i), s1_map.getOrDefault(s1.charAt(i),0) + 1);
+                s2_map.put(s2.charAt(i), s2_map.getOrDefault(s2.charAt(i), 0) + 1);
             }
 
             return s1_map.equals(s2_map);
