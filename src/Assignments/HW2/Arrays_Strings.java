@@ -58,14 +58,15 @@ public class Arrays_Strings {
             Arrays.sort(inputArray);
 
             for (Integer num : inputArray) {
-                if (arrayToReturn.size() < inputArray.length/2) {
-                    int target = targetSum - num;
-                    int found = Arrays.binarySearch(inputArray, target);
+                int target = targetSum - num;
+                int targetIndex = Arrays.binarySearch(inputArray, target);
 
-                    if (found > -1) {
-                        int[] pair = new int[]{num, inputArray[found]};
-                        arrayToReturn.add(pair);
-                    }
+                if (targetIndex > -1) {
+                    int[] pair = new int[]{num, inputArray[targetIndex]};
+                    arrayToReturn.add(pair);
+                    // not sure if we should take into account duplicates
+                    // if so get rid of line 69 & adjust test
+                    inputArray[targetIndex] = num;
                 }
             }
             return arrayToReturn;
