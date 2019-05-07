@@ -18,7 +18,7 @@ public class Arrays_Strings {
      * It returns an array of all pairs of integers from the input array whose sum equals the target.
      * */
 
-    public static boolean isStringPermuatation(String s1, String s2) {
+    public static boolean isStringPermutation(String s1, String s2) {
         if (s1 != null && s2 != null & s1.length() == s2.length()) {
             HashMap<Character, Integer> s1_map = new HashMap<>();
             HashMap<Character, Integer> s2_map = new HashMap<>();
@@ -34,7 +34,7 @@ public class Arrays_Strings {
         return false;
     }
 
-    public static boolean isStringPermuatationIter1(String s1, String s2) {
+    public static boolean isStringPermutationIter1(String s1, String s2) {
         if (s1 != null && s2 != null & s1.length() == s2.length()) {
             int i = 0;
             List<Character> s1_list = new ArrayList<>();
@@ -57,10 +57,10 @@ public class Arrays_Strings {
 
     public static void main(String[] args) {
 
-        boolean ans = isStringPermuatationIter1("abs", "cda");
+        boolean ans = isStringPermutationIter1("abs", "cda");
         System.out.println(ans);
 
-        boolean ans1 = isStringPermuatation("abs", "sba");
+        boolean ans1 = isStringPermutation("abs", "sba");
         System.out.println(ans1);
     }
 }
