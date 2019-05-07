@@ -64,9 +64,6 @@ public class Arrays_Strings {
                 if (targetIndex > -1) {
                     int[] pair = new int[]{num, inputArray[targetIndex]};
                     arrayToReturn.add(pair);
-                    // not sure if we should take into account duplicates
-                    // if so get rid of line 69 & adjust test
-                    inputArray[targetIndex] = num;
                 }
             }
             return arrayToReturn;
