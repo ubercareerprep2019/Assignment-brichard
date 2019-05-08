@@ -1,9 +1,6 @@
 package Assignments.HW2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Arrays_Strings {
     /**
@@ -62,8 +59,29 @@ public class Arrays_Strings {
                 int targetIndex = Arrays.binarySearch(inputArray, target);
 
                 if (targetIndex > -1) {
-                    int[] pair = new int[]{num, inputArray[targetIndex]};
-                    arrayToReturn.add(pair);
+                    arrayToReturn.add(new int[]{num, inputArray[targetIndex]});
+                }
+            }
+            return arrayToReturn;
+        }
+
+        return null;
+    }
+
+    public static ArrayList<int[]> pairsThatEqualSum(ArrayList<Integer> inputArray, int targetSum) {
+        if (inputArray != null) {
+            ArrayList<int[]> arrayToReturn = new ArrayList<>();
+            int i = 0;
+
+            while (inputArray.size() > 0 & i < inputArray.size()) {
+                int targetIndex = inputArray.indexOf(targetSum - inputArray.get(i));
+
+                if (targetIndex > -1) {
+                    arrayToReturn.add(new int[]{inputArray.get(i), inputArray.get(targetIndex)});
+                    inputArray.remove(inputArray.get(targetIndex));
+                    inputArray.remove(inputArray.get(i));
+                } else {
+                    i++;
                 }
             }
             return arrayToReturn;
@@ -75,7 +93,17 @@ public class Arrays_Strings {
     public static void main(String[] args) {
 
         int[] test = new int[] {1,2,3,4};
-        System.out.println(pairsThatEqualSum(test,5));
+        ArrayList<Integer> test1 = new ArrayList<>();
+        test1.add(1);
+        test1.add(2);
+        test1.add(3);
+        test1.add(4);
+
+
+        ArrayList<int[]> ans0 = pairsThatEqualSum(test1,5);
+        for (int[] array : ans0) {
+            System.out.println(Arrays.toString(array));
+        }
 
         boolean ans = isStringPermutationIter1("abs", "asb");
         System.out.println(ans);

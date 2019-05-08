@@ -97,10 +97,10 @@ public class HW2Tests {
         assertEquals(2,Arrays_Strings.pairsThatEqualSum(test,6).size());
     }
 
-    @Test
-    public void pairsThatEqualSumTestNull() {
-        assertNull(Arrays_Strings.pairsThatEqualSum(null,6));
-    }
+//    @Test
+//    public void pairsThatEqualSumTestNull() {
+//        assertNull(Arrays_Strings.pairsThatEqualSum(null,6));
+//    }
 
     @Test
     public void pairsThatEqualSumTestNoPairs() {
