@@ -52,11 +52,9 @@ public class Arrays_Strings {
     public static ArrayList<int[]> pairsThatEqualSum(int[] inputArray, int targetSum) {
         if (inputArray != null) {
             ArrayList<int[]> arrayToReturn = new ArrayList<>();
-            Arrays.sort(inputArray);
 
             for (Integer num : inputArray) {
-                int target = targetSum - num;
-                int targetIndex = Arrays.binarySearch(inputArray, target);
+                int targetIndex = Arrays.binarySearch(inputArray, targetSum - num);
 
                 if (targetIndex > -1) {
                     arrayToReturn.add(new int[]{num, inputArray[targetIndex]});
