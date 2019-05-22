@@ -21,13 +21,22 @@ public class Stack {
 
     private List<Integer> stack = new ArrayList<>();
 
+    private boolean insertFront = true;
+
+    public void setInsertFront(boolean b) {
+        this.insertFront = b;
+    }
 
     public List<Integer> getStack() {
         return stack;
     }
 
     public void push(int num) {
-        getStack().add(0, num);
+        if (insertFront) {
+            getStack().add(0, num);
+        } else {
+            getStack().add(num);
+        }
     }
 
 
@@ -64,6 +73,12 @@ class main {
         System.out.println(test.pop());
         System.out.println(test.pop());
         System.out.println(test.isEmpty());
+
+        Queue testQ = new Queue();
+        testQ.enqueue(9);
+        testQ.enqueue(2);
+        testQ.enqueue(1);
+        System.out.println(testQ.dequeue());
 
     }
 }
