@@ -1,6 +1,6 @@
-package Assignments.HW3;
+package Assignments.Part3;
 
-public class Queue {
+class Queue {
 
     private Stack queue = new Stack();
 
@@ -18,4 +18,3 @@ public class Queue {
     }
 
 }
-

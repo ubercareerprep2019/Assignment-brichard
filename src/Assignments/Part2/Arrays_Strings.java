@@ -1,8 +1,12 @@
-package Assignments.HW2;
+package Assignments.Part2;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 public class Arrays_Strings {
+
     /**
      * Implement the function: Boolean isStringPermutation(String s1, String s2)
      * This function takes two strings and returns true if one string is a permutation of the other, false otherwise.
@@ -110,3 +114,4 @@ public class Arrays_Strings {
         System.out.println(ans1);
     }
 }
+

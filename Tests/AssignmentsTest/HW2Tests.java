@@ -1,6 +1,6 @@
 package AssignmentsTest;
 
-import Assignments.HW2.Arrays_Strings;
+import Assignments.Arrays_Strings;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package Assignments.HW3;
+package Assignments.Part3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,7 @@ public class Stack {
 
 
     private List<Integer> stack = new ArrayList<>();
+    private int minTracker;
 
     private boolean insertFront = true;
 
@@ -36,6 +37,15 @@ public class Stack {
             getStack().add(0, num);
         } else {
             getStack().add(num);
+        }
+        setMin(num);
+    }
+
+    public void setMin(int num) {
+        if (num < minTracker && getStack().size() > 1) {
+            minTracker = num;
+        } else if (getStack().size() == 1) {
+            minTracker = num;
         }
     }
 
@@ -57,9 +67,11 @@ public class Stack {
     public boolean isEmpty() {
         return getStack().size() == 0;
     }
-}
 
-class main {
+    public int min() {
+        return minTracker;
+    }
+
 
     public static void main(String[] args) {
 
@@ -67,7 +79,7 @@ class main {
         test.push(8);
         test.push(22);
         System.out.println(test.top());
-        test.push(88);
+        test.push(70);
         System.out.println(test.pop());
         System.out.println(test.pop());
         System.out.println(test.pop());
@@ -81,5 +93,6 @@ class main {
         System.out.println(testQ.dequeue());
 
     }
+
 }
 
