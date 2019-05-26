@@ -35,24 +35,6 @@ public class Arrays_Strings {
         return false;
     }
 
-    public static boolean isStringPermutationIter1(String s1, String s2) {
-        if (s1 != null && s2 != null & s1.length() == s2.length()) {
-            List<Character> s1_list = new ArrayList<>();
-
-            for (Character letter : s1.toCharArray()) {
-                s1_list.add(letter);
-            }
-
-            for (Character character : s2.toCharArray()) {
-                s1_list.remove(character);
-            }
-
-            return s1_list.size() == 0;
-        }
-
-        return false;
-    }
-
     public static ArrayList<int[]> pairsThatEqualSum(int[] inputArray, int targetSum) {
         if (inputArray != null) {
             ArrayList<int[]> arrayToReturn = new ArrayList<>();
@@ -106,9 +88,6 @@ public class Arrays_Strings {
         for (int[] array : ans0) {
             System.out.println(Arrays.toString(array));
         }
-
-        boolean ans = isStringPermutationIter1("abs", "asb");
-        System.out.println(ans);
 
         boolean ans1 = isStringPermutation("abs", "sba");
         System.out.println(ans1);

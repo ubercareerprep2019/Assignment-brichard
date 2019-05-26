@@ -1,6 +1,6 @@
 package Assignments.Part3;
 
-class Queue {
+public class Queue {
 
     private Stack queue = new Stack();
 

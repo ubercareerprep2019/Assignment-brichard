@@ -1,12 +1,10 @@
 package AssignmentsTest;
-
-import Assignments.Arrays_Strings;
-
+import Assignments.Part2.Arrays_Strings;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class HW2Tests {
+public class Part2Tests {
 
     /******************** isStringPermutatuonTest ********************/
 
