@@ -1,6 +1,6 @@
 package Assignments.Part4;
 
-public class LinkedList {
+public class LinkedList<T> {
     /**
      * Implement a Singly Linked List class. You will need to implement the following methods:
      * ○ void pushBack(<T> data)
@@ -21,16 +21,92 @@ public class LinkedList {
 
     Node head;
     Node tail;
+    int size = 0;
 
-    void pushback(Object data) {
-        if (head == null) {
-            head = new Node(data,null);
-
-        } else {
-            n
-        }
-
+    int size() {
+        return size;
     }
+
+     void pushback(T data) {
+        Node current = head;
+        size++;
+
+        while (current != null) {
+            if (current.getNext() == null) {
+                current.setNext(data,current,null);
+                tail = current.getNext();
+                return;
+            }
+            current = current.getNext();
+        }
+        head = new Node(data,null,tail);
+    }
+
+    T popBack() {
+         size--;
+         T dataToReturn = (T) tail.getData();
+         tail = null;
+         return dataToReturn;
+    }
+
+    void insert(int index, T data) {
+        int currentIndex = 0;
+        Node currentNode = head;
+
+         while (index < size) {
+             if (index == currentIndex) {
+                 if (index == 0) {
+                     head = new Node(data,null,currentNode);
+                     return;
+                 } else {
+                     currentNode.getPrevious().setNext(data,currentNode.getPrevious(),currentNode);
+                     return;
+                 }
+             } else {
+                 currentIndex++;
+             }
+         }
+    }
+
+    void erase(int index) {
+        if (index == 0) {
+            head = getElementAt(index).getNext();
+        } else {
+            getElementAt(index).getPrevious().setNext(getElementAt(index).getNext());
+        }
+        getElementAt(index).setPrevious(null,null);
+    }
+
+    T elementAt(int index) {
+        return (T) getElementAt(index).getData();
+    }
+
+    Node getElementAt(int index) {
+        int count = 0;
+        Node current = head;
+
+        while (index < size) {
+            if (count == index) {
+                return current;
+            } else {
+                count++;
+            }
+        }
+        return null;
+    }
+
+    //int count = 0;
+    //        Node current = head;
+    //
+    //        while (index < size) {
+    //            if (count == index) {
+    //                current.getPrevious().setNext(current.getNext());
+    //                return current;
+    //            } else {
+    //                count++;
+    //            }
+    //        }
+
 
 
 }
