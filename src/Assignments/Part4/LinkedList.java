@@ -23,90 +23,82 @@ public class LinkedList<T> {
     Node tail;
     int size = 0;
 
-    int size() {
+    public int size() {
         return size;
     }
 
-     void pushback(T data) {
-        Node current = head;
-        size++;
+    public void pushBack(T data) {
+        Node previous;
+        Node newNode;
 
-        while (current != null) {
-            if (current.getNext() == null) {
-                current.setNext(data,current,null);
-                tail = current.getNext();
-                return;
-            }
-            current = current.getNext();
-        }
-        head = new Node(data,null,tail);
-    }
-
-    T popBack() {
-         size--;
-         T dataToReturn = (T) tail.getData();
-         tail = null;
-         return dataToReturn;
-    }
-
-    void insert(int index, T data) {
-        int currentIndex = 0;
-        Node currentNode = head;
-
-         while (index < size) {
-             if (index == currentIndex) {
-                 if (index == 0) {
-                     head = new Node(data,null,currentNode);
-                     return;
-                 } else {
-                     currentNode.getPrevious().setNext(data,currentNode.getPrevious(),currentNode);
-                     return;
-                 }
-             } else {
-                 currentIndex++;
-             }
-         }
-    }
-
-    void erase(int index) {
-        if (index == 0) {
-            head = getElementAt(index).getNext();
+        if (head == null) {
+            previous = getElementAt(size);
+            newNode = new Node(data,previous,null);
+            head = newNode;
         } else {
-            getElementAt(index).getPrevious().setNext(getElementAt(index).getNext());
+            previous = getElementAt(size - 1);
+            newNode = new Node(data,previous,null);
+            previous.setNext(newNode);
         }
-        getElementAt(index).setPrevious(null,null);
+
+        size++;
+        tail = newNode;
     }
 
-    T elementAt(int index) {
+    public T popBack() {
+         size--;
+         T result = (T) tail.getData();
+         tail = null;
+         return result;
+    }
+
+    public void insert(int index, T data) {
+        if (index < size + 1 && index > 0 || index == 0) {
+            size++;
+            if (index == 0) {
+                head = new Node(data,null,getElementAt(index));
+            } else {
+                Node previous = getElementAt(index - 1);
+                Node next = getElementAt(index);
+                Node newNode = new Node(data,previous,next);
+                previous.setNext(newNode);
+                if (next != null) {
+                    next.setPrevious(newNode);
+                }
+            }
+        }
+    }
+
+    public void erase(int index) {
+        if (index > 0 && index < size || index == 0) {
+            size--;
+            if (index == 0) {
+                head = getElementAt(index).getNext();
+                head.setPrevious(null);
+            } else {
+                getElementAt(index).getPrevious().setNext(getElementAt(index).getNext());
+                getElementAt(index).getNext().setPrevious(getElementAt(index).getPrevious());
+            }
+            getElementAt(index).setPrevious(null, null);
+        }
+    }
+
+    public T elementAt(int index) {
         return (T) getElementAt(index).getData();
     }
 
-    Node getElementAt(int index) {
+    public Node getElementAt(int index) {
         int count = 0;
         Node current = head;
 
-        while (index < size) {
+        while (index < size && index >= 0) {
             if (count == index) {
                 return current;
             } else {
+                current = current.getNext();
                 count++;
             }
         }
         return null;
     }
-
-    //int count = 0;
-    //        Node current = head;
-    //
-    //        while (index < size) {
-    //            if (count == index) {
-    //                current.getPrevious().setNext(current.getNext());
-    //                return current;
-    //            } else {
-    //                count++;
-    //            }
-    //        }
-
-
-
 }
