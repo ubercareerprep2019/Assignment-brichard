@@ -35,9 +35,10 @@ public class Part4Tests {
         LinkedList test = new LinkedList();
         test.insert(2,8);
         test.insert(0,7);
+        test.insert(1,10);
         test.insert(0,9);
 
-        int[] ans = new int[] {9,7};
+        int[] ans = new int[] {9,7,10};
 
         for (int i = 0; i < test.size(); i++) {
             assertEquals(test.getElementAt(i).getData(),ans[i]);

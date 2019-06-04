@@ -28,17 +28,12 @@ public class LinkedList<T> {
     }
 
     public void pushBack(T data) {
-        Node previous;
-        Node newNode;
+        Node newNode = new Node(data,null);
 
         if (head == null) {
-            previous = getElementAt(size);
-            newNode = new Node(data,previous,null);
             head = newNode;
         } else {
-            previous = getElementAt(size - 1);
-            newNode = new Node(data,previous,null);
-            previous.setNext(newNode);
+            getElementAt(size - 1).setNext(newNode);
         }
 
         size++;
@@ -55,16 +50,12 @@ public class LinkedList<T> {
     public void insert(int index, T data) {
         if (index < size + 1 && index > 0 || index == 0) {
             size++;
+            Node newNode = new Node(data,getElementAt(index));
+
             if (index == 0) {
-                head = new Node(data,null,getElementAt(index));
+                head = newNode;
             } else {
-                Node previous = getElementAt(index - 1);
-                Node next = getElementAt(index);
-                Node newNode = new Node(data,previous,next);
-                previous.setNext(newNode);
-                if (next != null) {
-                    next.setPrevious(newNode);
-                }
+                getElementAt(index - 1).setNext(newNode);
             }
         }
     }
@@ -74,12 +65,9 @@ public class LinkedList<T> {
             size--;
             if (index == 0) {
                 head = getElementAt(index).getNext();
-                head.setPrevious(null);
             } else {
-                getElementAt(index).getPrevious().setNext(getElementAt(index).getNext());
-                getElementAt(index).getNext().setPrevious(getElementAt(index).getPrevious());
+                getElementAt(index - 1).setNext(getElementAt(index).getNext());
             }
-            getElementAt(index).setPrevious(null, null);
         }
     }
 

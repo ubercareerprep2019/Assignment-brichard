@@ -3,21 +3,15 @@ package Assignments.Part4;
 public class Node<T> {
 
     private Node next;
-    private Node previous;
     private T data;
 
-    public Node(T data, Node previous, Node next) {
-        this.previous = previous;
+    public Node(T data, Node next) {
         this.next = next;
         this.data = data;
     }
 
     public Node getNext() {
         return next;
-    }
-
-    public void setNext(T data, Node previous,Node next) {
-        this.next = new Node(data,previous,next);
     }
 
     public void setNext(Node next) {
@@ -27,19 +21,4 @@ public class Node<T> {
     public T getData() {
         return data;
     }
-
-    public Node getPrevious() {
-        return previous;
-    }
-
-    public void setPrevious(Node pre, Node next) {
-        previous = pre;
-        this.next = next;
-
-    }
-
-    public void setPrevious(Node pre) {
-        previous = pre;
-    }
-
 }
