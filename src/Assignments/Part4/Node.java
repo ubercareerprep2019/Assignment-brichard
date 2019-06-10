@@ -4,6 +4,7 @@ public class Node<T> {
 
     private Node next;
     private T data;
+    private boolean visited = false;
 
     public Node(T data, Node next) {
         this.next = next;
@@ -20,5 +21,13 @@ public class Node<T> {
 
     public T getData() {
         return data;
+    }
+
+    public void setVisited() {
+        visited = !visited;
+    }
+
+    public boolean getVisited() {
+        return visited;
     }
 }
