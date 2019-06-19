@@ -1,6 +1,9 @@
 package Assignments.Part4;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 
 
 public class LinkedList<T> {
@@ -130,16 +133,14 @@ public class LinkedList<T> {
      */
     public boolean hasCycle() {
         HashSet<Node> set = new HashSet<>();
-        int i = 0;
         Node current = head;
 
-        while (i < size) {
+        while (current != null) {
             set.add(current);
             if (set.contains(current.getNext())) {
                 return true;
             }
             current = current.getNext();
-            i++;
         }
 
         return false;
@@ -167,20 +168,38 @@ public class LinkedList<T> {
      * This functions returns T/F if the data in the list reads the same forwards as backwards
      * @return bool
      */
-    public boolean isPalindrome() {
+    public boolean isPalindromeShortCut() {
         // assuming this is considering the data instead of the actual nodes
         String data = "";
         Node current = head;
 
         if (!hasCycle()) {
             while (current != null) {
-                data = data + String.valueOf(current.getData());
+                data += String.valueOf(current.getData());
                 current = current.getNext();
             }
         }
 
         String reversed = new StringBuilder(data).reverse().toString();
         return data.equals(reversed);
+    }
+
+    public boolean isPalindrome() {
+        // because string builder has a limit on length of string
+        // assuming this is considering the data instead of the actual nodes
+        ArrayList<Object> list = new ArrayList<>();
+        Node current = head;
+
+        if (!hasCycle()) {
+            while (current != null) {
+                list.add(current.getData());
+                current = current.getNext();
+            }
+        }
+
+        List reversed = new ArrayList(list);
+        Collections.reverse(reversed);
+        return  list.equals(reversed);
     }
 
 }

@@ -2,7 +2,11 @@ package Assignments.Part3;
 
 public class Queue {
 
-    private Stack queue = new Stack();
+    private Stack queue;
+
+    public Queue() {
+        queue = new Stack();
+    }
 
     public Stack getQueue() {
         return queue;
