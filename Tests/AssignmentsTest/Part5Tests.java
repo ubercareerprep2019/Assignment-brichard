@@ -40,4 +40,16 @@ public class Part5Tests {
 
         }
     }
+
+    @Test
+    public void tower25Test() {
+        Hanoi test = new Hanoi(25);
+        test.solve();
+
+        for (int i = 0; i < test.getRodThree().size(); i++) {
+            Hanoi.Disk disk = test.getRodThree().get(i);
+            assertEquals(disk.getPosition(),i+1);
+
+        }
+    }
 }
