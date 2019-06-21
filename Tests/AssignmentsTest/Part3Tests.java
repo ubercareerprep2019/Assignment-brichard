@@ -63,22 +63,28 @@ public class Part3Tests {
         Queue testQueue = new Queue();
         testQueue.enqueue(8);
         testQueue.enqueue(-11);
-        Queue test2 = new Queue();
-        test2.enqueue(-11);
-        test2.enqueue(8);
-        assertNotEquals(testQueue,test2);
+        assertEquals(testQueue.top(),8);
+    }
 
+    @Test
+    public void queueDequeueEmptyTest() {
+        Queue testQueue = new Queue();
+        testQueue.enqueue(8);
+        testQueue.dequeue();
+        testQueue.dequeue();
+        assertTrue(testQueue.isEmpty());
     }
 
     @Test
     public void queueDequeueTest() {
         Queue testQueue = new Queue();
         testQueue.enqueue(8);
+        testQueue.enqueue(90);
         testQueue.dequeue();
+        testQueue.enqueue(60);
         testQueue.dequeue();
-        Queue test2 = new Queue();
-        test2.enqueue(-11);
-        assertNotEquals(testQueue,test2);
+        testQueue.enqueue(7);
+        assertEquals(testQueue.top(),60);
     }
 
 }

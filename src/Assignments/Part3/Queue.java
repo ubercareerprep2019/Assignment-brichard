@@ -21,4 +21,12 @@ public class Queue {
         return getQueue().pop();
     }
 
+    public int top() {
+        return getQueue().top();
+    }
+
+    public boolean isEmpty() {
+        return getQueue().isEmpty();
+    }
+
 }

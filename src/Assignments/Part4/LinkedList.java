@@ -150,7 +150,7 @@ public class LinkedList<T> {
      * In the node that there is a variable called visited. Using the result of this variable a cycle can be detected
      * @return bool
      */
-    public boolean hasCycleEngancedNodes() {
+    public boolean hasCycleEnhancedNodes() {
         Node current = head;
 
         while (current.getNext() != null) {

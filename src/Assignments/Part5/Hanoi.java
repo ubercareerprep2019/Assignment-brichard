@@ -1,6 +1,6 @@
 package Assignments.Part5;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 
 public class Hanoi {
@@ -31,6 +31,18 @@ public class Hanoi {
         public int getPosition() {
             return position;
         }
+    }
+
+    ArrayList<Disk> diskAtRod(int rodIndex)  {
+        switch (rodIndex) {
+            case 1:
+                return rodOne;
+            case 2:
+                return rodTwo;
+            case 3:
+                return rodThree;
+        }
+        return null;
     }
 
     public Hanoi(int numDisk) {
@@ -69,9 +81,9 @@ public class Hanoi {
             return;
         }
 
-        solveHelper(n-1,first,second,third);
+        solveHelper(n - 1,first,second,third);
         moveDisk(first,third,topDisk(first));
-        solveHelper(n-1,second,third,first);
+        solveHelper(n - 1,second,third,first);
     }
 
 
