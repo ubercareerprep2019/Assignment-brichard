@@ -1,6 +1,6 @@
 package AssignmentsTest;
 
-import Assignments.Part4.LinkedList;
+import Assignments.Part1_4.LinkedList;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

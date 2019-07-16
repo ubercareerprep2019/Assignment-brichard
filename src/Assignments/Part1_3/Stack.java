@@ -1,4 +1,4 @@
-package Assignments.Part3;
+package Assignments.Part1_3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +56,7 @@ public class Stack {
         } catch (Exception e) {
             System.out.println("Stack is empty can no longer remove items: -1 will be returned as a default");
         }
+        
 
         return -1;
     }

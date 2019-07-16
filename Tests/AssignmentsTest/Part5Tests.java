@@ -1,5 +1,5 @@
 package AssignmentsTest;
-import Assignments.Part5.Hanoi;
+import Assignments.Part1_5.Hanoi;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

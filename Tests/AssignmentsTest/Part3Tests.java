@@ -1,7 +1,7 @@
 package AssignmentsTest;
 
-import Assignments.Part3.Queue;
-import Assignments.Part3.Stack;
+import Assignments.Part1_3.Queue;
+import Assignments.Part1_3.Stack;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

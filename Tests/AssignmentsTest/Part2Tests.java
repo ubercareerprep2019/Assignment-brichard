@@ -1,5 +1,5 @@
 package AssignmentsTest;
-import Assignments.Part2.Arrays_Strings;
+import Assignments.Part1_2.Arrays_Strings;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
