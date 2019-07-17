@@ -1,5 +1,7 @@
 package Assignments.Part2_1;
 
+import java.util.*;
+
 public class Tree {
 
     public TreeNode root;
@@ -23,21 +25,23 @@ public class Tree {
 
     /**
      * Exercise 1
-     *
-     *                           1
-     *                       7      17
-     *                            6    3
-     *
+     * <p>
+     * 1
+     * 7      17
+     * 6    3
+     * <p>
      * Implement a method called print() to print the values of the data in all the TreeNodes in a Tree above.
      * For example, running print() on the Tree above should produce one of the three values below:
-     *
+     * <p>
      * 7 6 3 17 1
-     *
-     * */
+     */
+
 
     String seq = "";
 
     public static void print(TreeNode node) {
+
+        // have to take out arguments because its static method
         printHelper(node);
     }
 
@@ -62,5 +66,6 @@ public class Tree {
         TreeNode root = new TreeNode(1, left, right);
         Tree tree = new Tree(root);
         print(tree.root);
+
     }
 }
