@@ -1,7 +1,5 @@
 package Assignments.Part2_1;
 
-import java.util.*;
-
 public class Tree {
 
     public TreeNode root;
@@ -22,7 +20,6 @@ public class Tree {
         }
     }
 
-
     /**
      * Exercise 1
      * <p>
@@ -36,16 +33,11 @@ public class Tree {
      * 7 6 3 17 1
      */
 
-
-    String seq = "";
-
-    public static void print(TreeNode node) {
-
-        // have to take out arguments because its static method
-        printHelper(node);
+    private void print() {
+        printHelper(root);
     }
 
-    public static void printHelper(TreeNode node) {
+    private void printHelper(TreeNode node) {
         if (node.left != null) {
             printHelper(node.left);
         }
@@ -65,7 +57,6 @@ public class Tree {
         TreeNode right = new TreeNode(17, leftChild, rightChild);
         TreeNode root = new TreeNode(1, left, right);
         Tree tree = new Tree(root);
-        print(tree.root);
-
+        tree.print();
     }
 }

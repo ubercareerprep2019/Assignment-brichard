@@ -3,37 +3,30 @@ package Assignments.Part2_2;
 public class BinarySearchTree {
     private Node root;
 
-    public Node getRoot() {
-        return root;
-    }
-
     /**
      * Inserts a key into this binary search tree.
      * If there are n nodes in the tree, then the average runtime of this method should be log(n).
      *
      * @param key The key to insert.
      */
-    public void insert(int key) {
-        Node current = getRoot();
+    private void insert(int key) {
         Node newNode = new Node(key);
+        Node current = root;
+        insert(current, newNode);
+    }
 
-        while (current != null) {
-            if (key >= current.key) {
-                if (current.right == null) {
-                    current.right = newNode;
-                    break;
-                } else {
-                    current = current.right;
-                }
-            } else if (key <= current.key) {
-                if (current.left == null) {
-                    current.left = newNode;
-                    break;
-                } else {
-                    current = current.left;
-                }
-            }
+    private Node insert(Node current, Node toInsert) {
+        if (current == null) {
+            return toInsert;
         }
+
+        if (toInsert.key >= current.key) {
+            current.right = insert(current.right, toInsert);
+        } else if (toInsert.key <= current.key) {
+            current.left = insert(current.left, toInsert);
+        }
+
+        return current;
     }
 
     /**
@@ -44,13 +37,13 @@ public class BinarySearchTree {
      * @return true if the key is present in this binary search tree, false otherwise.
      */
     public boolean find(int key) {
-        Node current = getRoot();
+        Node current = root;
         while (current != null) {
             if (key > current.key) {
                 current = current.right;
             } else if (key < current.key) {
                 current = current.left;
-            } else if (key == current.key) {
+            } else {
                 return true;
             }
         }
@@ -68,7 +61,6 @@ public class BinarySearchTree {
         public Node left;
         public Node right;
     }
-
 
 
     public static void main(String[] args) {
@@ -96,7 +88,6 @@ public class BinarySearchTree {
 
         bst.insert(32);
         System.out.println(bst.find(32));
-
     }
 }
 
